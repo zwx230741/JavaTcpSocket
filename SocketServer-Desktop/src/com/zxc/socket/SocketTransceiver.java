@@ -1,8 +1,13 @@
 ﻿package com.zxc.socket;
 
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.net.InetAddress;
 import java.net.Socket;
 
@@ -17,6 +22,7 @@ public abstract class SocketTransceiver implements Runnable {
 	protected DataInputStream in;
 	protected DataOutputStream out;
 	private boolean runFlag;
+	File f = null;
 
 	/**
 	 * 实例化
@@ -83,6 +89,18 @@ public abstract class SocketTransceiver implements Runnable {
 		return false;
 	}
 
+	public void writeFile(String s) throws IOException
+	{
+		RandomAccessFile randomFile;
+		randomFile = new RandomAccessFile("file/recv.txt", "rw");
+		// 文件长度，字节数
+		long fileLength = randomFile.length();
+		// 将写文件指针移到文件尾。
+		randomFile.seek(fileLength);
+		randomFile.writeBytes(s + "\r\n");
+		randomFile.close();
+	}
+	
 	/**
 	 * 监听Socket接收的数据(新线程中运行)
 	 */
@@ -98,6 +116,7 @@ public abstract class SocketTransceiver implements Runnable {
 		while (runFlag) {
 			try {
 				final String s = in.readUTF();
+				writeFile(s);
 				this.onReceive(addr, s);
 			} catch (IOException e) {
 				// 连接被断开(被动)

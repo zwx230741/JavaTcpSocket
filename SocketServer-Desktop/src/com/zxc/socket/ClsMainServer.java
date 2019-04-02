@@ -19,7 +19,7 @@ public class ClsMainServer {
 			@Override
 			public void onReceive(SocketTransceiver client, String s) {
 				printInfo(client, "Send Data: " + s);
-				client.send(s);
+				//client.send(s);
 			}
 
 			@Override

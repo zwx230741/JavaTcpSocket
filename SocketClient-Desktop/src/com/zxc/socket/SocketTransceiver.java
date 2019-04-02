@@ -1,7 +1,10 @@
 ﻿package com.zxc.socket;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -81,6 +84,32 @@ public abstract class SocketTransceiver implements Runnable {
 			}
 		}
 		return false;
+	}
+	
+	public void sendFile()
+	{
+		try {
+			FileReader fr;
+			fr = new FileReader("file/send.txt");
+			
+	        BufferedReader br=new BufferedReader(fr);
+	        String line="";
+	        try {
+				while ((line=br.readLine())!=null) {
+					send(line);
+				}
+				
+		        br.close();
+		        fr.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	/**

@@ -1,0 +1,6 @@
+vray_gi_irradmap_minRate = -3
+vray_gi_irradmap_maxRate = -2
+vray_gi_irradmap_subdivs = 50
+vray_gi_irradmap_interpSamples = 20
+vray_lightcache_subdivs = 1000
+vray_lightcache_sampleSize = 0.01
