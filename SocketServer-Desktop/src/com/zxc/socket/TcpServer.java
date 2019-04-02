@@ -1,4 +1,4 @@
-package com.jzj.socket;
+﻿package com.zxc.socket;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -10,8 +10,6 @@ import java.util.List;
 /**
  * TCP Socket服务器端
  * 
- * @author jzj1993
- * @since 2015-2-22
  */
 public abstract class TcpServer implements Runnable {
 

@@ -1,4 +1,4 @@
-package com.jzj.socket;
+package com.zxc.socket;
 
 public class ClsMainServer {
 

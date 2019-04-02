@@ -1,4 +1,4 @@
-package com.jzj.socket;
+﻿package com.zxc.socket;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -9,8 +9,6 @@ import java.net.Socket;
 /**
  * Socket收发器 通过Socket发送数据，并使用新线程监听Socket接收到的数据
  * 
- * @author jzj1993
- * @since 2015-2-22
  */
 public abstract class SocketTransceiver implements Runnable {
 

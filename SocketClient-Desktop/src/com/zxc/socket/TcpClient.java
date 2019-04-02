@@ -1,13 +1,10 @@
-package com.jzj.socket;
+﻿package com.zxc.socket;
 
 import java.net.InetAddress;
 import java.net.Socket;
 
 /**
  * TCP Socket客户端
- * 
- * @author jzj1993
- * @since 2015-2-22
  */
 public abstract class TcpClient implements Runnable {
 

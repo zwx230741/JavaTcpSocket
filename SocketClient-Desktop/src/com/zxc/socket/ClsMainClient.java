@@ -1,4 +1,4 @@
-package com.jzj.socket;
+package com.zxc.socket;
 
 public class ClsMainClient {
 
@@ -48,17 +48,10 @@ public class ClsMainClient {
 			}
 		};
 		c1.connect("127.0.0.1", 1234);
-		c2.connect("127.0.0.1", 1234);
 		delay();
 		while (true) {
 			if (c1.isConnected()) {
-				c1.getTransceiver().send("Hello1");
-			} else {
-				break;
-			}
-			delay();
-			if (c2.isConnected()) {
-				c2.getTransceiver().send("Hello2");
+				c1.getTransceiver().send("Hello");
 			} else {
 				break;
 			}
